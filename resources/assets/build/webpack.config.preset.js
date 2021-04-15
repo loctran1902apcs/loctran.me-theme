@@ -6,7 +6,7 @@ const config = require('./config');
 
 /** Default PostCSS plugins */
 let postcssPlugins = [
-  require('tailwindcss')(`${config.paths.assets}/styles/tailwind.config.js`),
+  require('tailwindcss')(`${config.paths.assets}/styles/tailwind.js`),
   require('autoprefixer')(),
 ];
 
@@ -33,12 +33,15 @@ module.exports = {
             {
               loader: 'postcss',
               options: {
-                parser: config.enabled.optimize
-                  ? 'postcss-safe-parser'
-                  : undefined,
-                plugins: postcssPlugins,
-                sourceMap: false,
+                postcssOptions: {
+                  parser: config.enabled.optimize
+                    ? 'postcss-safe-parser'
+                    : undefined,
+                  plugins: postcssPlugins,
+                  sourceMap: false,
+                },
               },
+
             },
             {
               loader: 'resolve-url',

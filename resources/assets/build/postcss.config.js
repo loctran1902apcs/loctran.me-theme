@@ -7,9 +7,14 @@ const cssnanoConfig = {
 module.exports = ({ file, options }) => {
   return {
     parser: options.enabled.optimize ? 'postcss-safe-parser' : undefined,
-    plugins: {
-      autoprefixer: true,
-      cssnano: options.enabled.optimize ? cssnanoConfig : false,
-    },
+    // plugins: {
+    //   tailwindcss: `${options.paths.assets}/styles/tailwind.js`,
+    //   autoprefixer: true,
+    //   cssnano: options.enabled.optimize ? cssnanoConfig : false,
+    // },
+    plugins: [
+      require('tailwindcss')('resources/assets/styles/tailwind.js'),
+      require('autoprefixer'),
+    ]
   };
 };

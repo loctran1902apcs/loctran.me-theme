@@ -1,10 +1,10 @@
 <!doctype html>
 <html {!! get_language_attributes() !!}>
   @include('partials.head')
-  <body @php body_class() @endphp>
+  <body class="bg-gray-50 text-black dark:bg-gray-900 dark:text-white">
     @php do_action('get_header') @endphp
     @include('partials.header')
-    <div class="wrap container" role="document">
+    <div class="wrap container pt-10" role="document">
       <div class="content">
         <main class="main">
           @yield('content')

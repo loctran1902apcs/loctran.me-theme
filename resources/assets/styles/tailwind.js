@@ -13,17 +13,8 @@
  * This plugin modifies Tailwind’s base styles using values from the theme.
  * https://tailwindcss.com/docs/adding-base-styles#using-a-plugin
  */
-const globalStyles = ({ addBase, config }) => {
+ const globalStyles = ({ addBase, config }) => {
   addBase({
-    a: {
-      color: config('theme.textColor.primary'),
-      textDecoration: 'none',
-      borderBottom: '1px solid transparent',
-      transition: '0.2s ease',
-    },
-    'a:hover': {
-      borderColor: config('theme.borderColor.primary'),
-    },
     p: {
       marginBottom: config('theme.margin.3'),
       lineHeight: config('theme.lineHeight.normal'),
@@ -47,9 +38,13 @@ const globalStyles = ({ addBase, config }) => {
  * Configuration
  */
 module.exports = {
+  darkMode: 'media',
   theme: {
+    fontFamily: {
+      sans: ['Space Grotesk', 'sans-serif'],
+    },
     colors: {
-      primary: '#525ddc',
+      primary: '#d5dc',
       white: '#fff',
       gray: {
         100: '#f7fafc',
